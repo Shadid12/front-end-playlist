@@ -13,7 +13,6 @@ class App extends Component {
         	<Navbar />
           <SearchBar />
         </div>
-        Welp this is gonna be
       </div>
     );
   }
