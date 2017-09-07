@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = { song: '',
-					   videos: '' }
+					   videos: ''}
 
 		this.handleSongInput = this.handleSongInput.bind(this)
 	}
@@ -29,7 +29,7 @@ class SearchBar extends React.Component {
 				    />
 				    <br />
 				    <RaisedButton label="Search" onClick={this.searchSong} />
-				    <SearchResults videos={this.state.videos}/>
+				    <SearchResults videos={this.state.videos} />
 			    </div>
 			</MuiThemeProvider>
 		)

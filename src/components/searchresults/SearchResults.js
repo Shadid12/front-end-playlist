@@ -15,9 +15,10 @@ class SearchResults extends React.Component {
 			<List>
 				{
 					this.props.videos.map(function(video){
-						return (<ListItem primaryText={video.title} key={video.id} onClick={(video) => {
-							//go to a different route
-							// need to add router
+						return (<ListItem primaryText={video.title} 
+										  key={video.id} 
+										  onClick={() => {
+											console.log(video)
 						}}/>)
 					})
 				}
