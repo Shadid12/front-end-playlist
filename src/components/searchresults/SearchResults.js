@@ -1,5 +1,6 @@
 import React from 'react'
 import {List, ListItem} from 'material-ui/List'
+import Avatar from 'material-ui/Avatar'
 
 class SearchResults extends React.Component {
 	constructor(props) {
@@ -15,10 +16,10 @@ class SearchResults extends React.Component {
 			<List>
 				{
 					this.props.videos.map(function(video){
-						return (<ListItem primaryText={video.title} 
+						return (<ListItem primaryText={video.title}
+										  leftAvatar={<Avatar src={video.thumbnails.default.url} />} 
 										  key={video.id} 
 										  onClick={() => {
-											console.log(video)
 						}}/>)
 					})
 				}
