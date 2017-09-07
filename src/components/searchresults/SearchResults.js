@@ -1,4 +1,5 @@
 import React from 'react'
+import {List, ListItem} from 'material-ui/List'
 
 class SearchResults extends React.Component {
 	constructor(props) {
@@ -11,13 +12,19 @@ class SearchResults extends React.Component {
 		}
 		return(
 			<div>
+			<List>
 				{
 					this.props.videos.map(function(video){
-						return (<li key={video.id}>{video.title}</li>)
+						return (<ListItem primaryText={video.title} key={video.id} onClick={this.playSong(video)}/>)
 					})
 				}
+			</List>
 			</div>
 		)
+	}
+
+	playSong = (video) => {
+		console.log(video)
 	}
 }
 
