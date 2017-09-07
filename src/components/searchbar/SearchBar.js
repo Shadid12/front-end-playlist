@@ -40,6 +40,9 @@ class SearchBar extends React.Component {
 	    	key: 'AIzaSyCc42k6MDwNMDkjwzs8Nt8MZ8WwITNoWFo'
 	    }
 	    search(this.state.song, opts, (err, res) => {
+	    	if(err){
+	    		console.log(err)
+	    	}
 	    	this.setState({videos: res})
 	    	this.setState({song: ''})
 	    	console.log(this.state.videos)
