@@ -6,10 +6,19 @@ class SearchResults extends React.Component {
 	}
 
 	render(){
+		if(!this.props.videos){
+			return null
+		}
 		return(
 			<div>
-				Search results
+				{
+					this.props.videos.map(function(video){
+						return (<li key={video.id}>{video.title}</li>)
+					})
+				}
 			</div>
 		)
 	}
 }
+
+export default SearchResults

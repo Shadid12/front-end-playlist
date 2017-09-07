@@ -24,11 +24,12 @@ class SearchBar extends React.Component {
 				<div>
 					<TextField
 				      floatingLabelText="Search Songs"
-				      value={this.state.value}
+				      value={this.state.song}
 				      onChange={this.handleSongInput}
 				    />
 				    <br />
 				    <RaisedButton label="Search" onClick={this.searchSong} />
+				    <SearchResults videos={this.state.videos}/>
 			    </div>
 			</MuiThemeProvider>
 		)
@@ -40,6 +41,7 @@ class SearchBar extends React.Component {
 	    }
 	    search(this.state.song, opts, (err, res) => {
 	    	this.setState({videos: res})
+	    	this.setState({song: ''})
 	    	console.log(this.state.videos)
 	    })
 	}
