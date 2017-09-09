@@ -20,7 +20,7 @@ class SearchResults extends React.Component {
 										  leftAvatar={<Avatar src={video.thumbnails.default.url} />} 
 										  key={video.id} 
 										  onClick={() => {
-										  	window.location.href=`/add/${video.id}`
+										  	window.location.href=`/add/query?lunch=${video.id}`
 						}}/>)
 					})
 				}

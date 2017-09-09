@@ -4,22 +4,28 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import ReactQueryParams from 'react-query-params'
 
-class AddToRoom extends Component {
+class AddToRoom extends ReactQueryParams {
+	constructor(props){
+		super(props)
+		this.state = {
+			url: this.queryParams.lunch
+		}
+	}
+	
+
 	render(){
 		return(
 			<div>
 				<Navbar />
-				<Route path="/add/:id" component={Modal}/>
+				<div onClick={() => {console.log(this.state.url)}}>Click</div>
 			</div>
 		)
 	}
 }
-
-const Modal = ({ match }) => (
-  <div>
-    <h3>ID: {match.params.id}</h3>
-  </div>
-)
 
 export default AddToRoom
