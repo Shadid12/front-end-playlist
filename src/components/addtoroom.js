@@ -18,14 +18,15 @@ class AddToRoom extends ReactQueryParams {
 		this.state = {
 			url: this.queryParams.lunch,
 			value: 1,
-			rooms: ''
+			rooms: []
 		}
 
 		axios.get('http://localhost:3001/rooms')
 			.then( (res) => {
-				console.log(res)
+				this.setState({rooms: res.data,
+							   value: res.data[0].id})
+				console.log(this.state.rooms)
 			})
-
 	}
 	
 	handleChange = (event, index, value) => {
@@ -43,11 +44,13 @@ class AddToRoom extends ReactQueryParams {
 				<Navbar />
 				<br />
 				<DropDownMenu value={this.state.value} onChange={this.handleChange}>
-		          <MenuItem value={1} primaryText="Never" />
-		          <MenuItem value={2} primaryText="Every Night" />
-		          <MenuItem value={3} primaryText="Weeknights" />
-		          <MenuItem value={4} primaryText="Weekends" />
-		          <MenuItem value={5} primaryText="Weekly" />
+				 	{
+				 		this.state.rooms.map(function(item){
+				 			return(
+				 				<MenuItem value={item.id} primaryText={item.name} key={item.id} />
+				 			)
+				 		})
+				 	}
 		        </DropDownMenu>
 				<FlatButton label="Add" primary={true} onClick={this.buttonClicked} />
 			</div>
