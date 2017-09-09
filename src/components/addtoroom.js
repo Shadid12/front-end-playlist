@@ -10,14 +10,22 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import ReactQueryParams from 'react-query-params'
 import FlatButton from 'material-ui/FlatButton'
 import DropDownMenu from 'material-ui/DropDownMenu'
+import axios from 'axios'
 
 class AddToRoom extends ReactQueryParams {
 	constructor(props){
 		super(props)
 		this.state = {
 			url: this.queryParams.lunch,
-			value: 1
+			value: 1,
+			rooms: ''
 		}
+
+		axios.get('http://localhost:3001/rooms')
+			.then( (res) => {
+				console.log(res)
+			})
+
 	}
 	
 	handleChange = (event, index, value) => {
